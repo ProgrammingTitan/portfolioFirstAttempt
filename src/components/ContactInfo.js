@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import Resume from '../data/paulvalenzuela/Resume.pdf';
 
 const ContactInfo = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const ContactInfo = (props) => {
         <Card>
           <CardBody>
             Email: Pavalenzuela428@gmail.com
+            <br/><a href={Resume} target="_blank"  rel="noopener noreferrer">Resume</a>
           </CardBody>
         </Card>
       </Collapse>

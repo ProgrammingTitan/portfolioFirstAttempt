@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron, Button, Media} from 'reactstrap';
+import {Media} from 'reactstrap';
 
 const MiniProject = (props) => 
 {

@@ -10,8 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  NavbarText
+  DropdownItem
 } from 'reactstrap';
 
 const NavBar = (props) => {
@@ -55,10 +54,6 @@ const NavBar = (props) => {
                 </DropdownItem>
                 <DropdownItem>
                     <NavLink style={linkStyle}href="https://raztecagoods.herokuapp.com/">E-Commerce Website</NavLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { Container } from 'reactstrap';
 import NavBar from './NavBar';
 import MiniProject from './MiniProject';

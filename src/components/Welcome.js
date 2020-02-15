@@ -33,6 +33,7 @@ const items = [
 
 const imgStyle = {
     maxHeight: 600,
+    minwidth: '10%',
     align: 'center',
     display: 'block',
     marginLeft: 'auto',
@@ -63,7 +64,7 @@ const Welcome = (props) => {
 
   const slides = items.map((item) => {
     return (
-      <CarouselItem
+      <CarouselItem xs="12" lg="6"
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}

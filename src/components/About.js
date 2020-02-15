@@ -4,7 +4,7 @@ import Footer from './Footer';
 import {
     Container, Col,Row,
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle
   } from 'reactstrap';
 import selfie from './../data/paulvalenzuela/linkedin.JPG';
 import ContactInfo from './ContactInfo';

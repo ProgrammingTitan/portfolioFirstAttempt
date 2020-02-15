@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-// import App from './../App';
 import CEProject from './CEProject';
 import '../App.css';
 import HomePage from './HomePage';
 import About from './About';
+
 import pongBlockDiagram from '../data/ponggame/blockdiagram.pdf';
 import pongDetailedDiagram from '../data/ponggame/detaileddiagram.pdf';
 import pongSourceCode from '../data/ponggame/sourcecode.pdf';
@@ -23,7 +23,6 @@ import relayVideo from '../data/relayracegame/video.MOV';
 import carSourceCode from '../data/car/code.pdf';
 import carOutput from '../data/car/picofcar.jpg';
 import carVerification from '../data/car/video.MOV';
-import carDiagram from '../data/car/cardiagram.pdf';
 import labeledCar from '../data/car/labels.pdf';
 import carTop from '../data/car/top.pdf';
 import frontCar from '../data/car/frontpic.jpg';
@@ -135,7 +134,7 @@ class Router extends React.Component{
             render={ (match) => 
                 <CEProject 
                 descriptionTitle = "Relay Race Game"
-                descriptionParagraph = "This project created a Relay Race Game using two buttons and 4 LEDs on a breadboard.  The game has two players hold down their button until the green lights indicate the race has started. After this occurs, whoever lets go of the button first wins. The green LED that remains on indicates which player won."
+                descriptionParagraph = "This project created a Relay Race Game using two buttons and 8 LEDs on a breadboard.  The game has two players hold down their button until the green lights indicate the race has started. After this occurs, whoever lets go of the button first wins. The green LED that remains on indicates which player won."
                 descriptionPic = {<img src= {relayOutput} alt="output" width="50%" style={imgStyle}/> } 
                 designBody = {
                     <div>
@@ -196,7 +195,7 @@ class Router extends React.Component{
                         <p>The final product </p>
                     </div>
                 }
-                output = {<img src= {relayOutput} alt="output" height="100%" width="100%"/> }
+                output = {<img src= {carOutput} alt="output" width="50%" style={imgStyle}/> }
                 verification = 
                 {<video  width="40%"  muted style={imgStyle} src={carVerification}controls>
                 {/* <source src={carVerification} type="video/MOV"/> */}
