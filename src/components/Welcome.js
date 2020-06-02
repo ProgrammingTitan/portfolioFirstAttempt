@@ -10,11 +10,11 @@ import {
 
 import amazon from '../data/paulvalenzuela/amazon.JPG';
 import suki from '../data/paulvalenzuela/suki.JPG';
-import school from '../data/paulvalenzuela/circuit.jpg';
+import school1 from '../data/paulvalenzuela/circuit.jpg';
 
 const items = [
   {
-    src: school,
+    src: school1,
     class: "rotateimg90",
     altText: 'Hello! Welcome To my website, I am an engineering student and here are some of my accomplishments',
     caption: 'Hello! Welcome To my website!'

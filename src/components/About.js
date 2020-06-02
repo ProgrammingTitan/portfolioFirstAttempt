@@ -26,7 +26,7 @@ const About = (props) =>
         <CardBody>
           <CardTitle>Paul Anthony Valenzuela Jr</CardTitle>
           <CardSubtitle>Long Beach, CA</CardSubtitle>
-          <CardText>Hello my name is Paul Valenzuela. I am 21 years old and I am currently studying at CSULB to become a computer engineer.</CardText>
+          <CardText>Hello my name is Paul Valenzuela. I am 22 years old and I am currently studying at CSULB to become a computer engineer.</CardText>
           <ContactInfo />
         </CardBody>
       </Card>

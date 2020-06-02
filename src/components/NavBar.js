@@ -53,7 +53,13 @@ const NavBar = (props) => {
                     <NavLink  style={linkStyle}href="/Projects/RelayRaceGame">Relay Race Game</NavLink>
                 </DropdownItem>
                 <DropdownItem>
+                    <NavLink style={linkStyle} href="/Projects/CarDCMotor">DC Motor Car</NavLink>
+                </DropdownItem>
+                <DropdownItem>
                     <NavLink style={linkStyle}href="https://raztecagoods.herokuapp.com/">E-Commerce Website</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                    <NavLink style={linkStyle}href="https://www.slideshare.net/PaulValenzuela17/chip-specification">System on a Chip</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

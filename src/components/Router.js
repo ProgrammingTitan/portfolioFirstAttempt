@@ -27,6 +27,13 @@ import labeledCar from '../data/car/labels.pdf';
 import carTop from '../data/car/top.pdf';
 import frontCar from '../data/car/frontpic.jpg';
 
+import frontDCCar from '../data/DCcar/frontpic.jpg';
+import labeledDCCar from '../data/DCcar/HardwareDesign1.pdf';
+import HardwareDesignDC from '../data/DCcar/HardwareDesign2.pdf';
+import carDCVerification from '../data/DCcar/video.mov';
+import carDCSourceCode from '../data/DCcar/code.pdf';
+
+
 class Router extends React.Component{
 
 
@@ -202,6 +209,107 @@ class Router extends React.Component{
               Your browser does not support the video tag.
               </video>}
                 sourceCode = {carSourceCode}
+                
+                
+                />
+                }
+            ></Route>
+            <Route 
+            path= '/Projects/CarDCMotor'
+            render={ (match) => 
+                <CEProject 
+                descriptionTitle = "DC Motor Car"
+                descriptionParagraph = "This project had us implement pulse-width modulation to control the speed of DC motors on a car chassis. We also were able to control the direction that the wheels were rotating by choosing which way the current flows through the H-bridge for each wheel. The PWM alternated between a 0%, 30%, 60%, 80%, and 98% duty cycle. The duty cycle directly correlates with the speed of the DC motors. "
+                descriptionPic = {<img src= {frontDCCar} alt="output" width="50%" style={imgStyle}/> } 
+                designBody = {
+                    <div>
+                        <h3>Design Description</h3>
+                       <p>In order to regulate the duty cycle, we used a global variable as well as an interrupt
+handler. The global variable duty was initialized to 300 which indicates a 30% duty cycle due to
+the frequency. The interrupt handler worked for PF4, which was switch 1. Every time that the
+interrupt handler noticed a falling edge detection on PF4, it incremented duty to the next
+indicated value. In our case, duty cycled through 0, 300, 600, 800, and 980. These values
+translated to 0%, 30%, 60%, 80%, and 98% respectively. The way the duty cycle worked, was
+that every time the PWM timer was in the high section, current was sent to the DC motor. The
+amount of time that the DC motor received current in the cycle directly translated to how fast the
+motor was going. Also, when the duty cycle was 0%, the LEDs on the TM4C displayed red,
+which indicated that the motors were not spinning the wheels.
+We also had to have control over the direction of the motors. To control the direction of
+the motors, a state machine had to be implemented. The state machine held 3 states: stop,
+forward, reverse. Each state held 4 32_uint variables: pb6, pb7, direction, and light. The pb6
+variable told the PWM how to behave when the timer reached CMPA. For instance, if we want
+to go reverse, the motor needs to have the opposite behavior, so the low and high duty cycle must
+be switched. In order to do that, we held the behavior switches in variables known as pb6 and
+pb7. For the direction variable, no PWM was necessary so the variable switched between high
+and low for PA4 and PA3, depending on which state it was in. Finally, the light variable
+indicated which state the machine was in. If the car was stopped, the LEDs appeared red. If the
+car was moving forward, the LEDs appeared green. If the car was moving in reverse, the LEDs
+appeared blue. 
+</p>
+                        <h3>Software Design</h3> 
+                        <h4>void PWM0A_Init(uint16_t period, uint16_t duty):</h4>
+<p>Initializes PWM0 with parameters period and duty. Assigns PB6 as the output pin. Sets
+the behavior of PB6 depending on the count.</p>
+<h4>void PWM0A_Duty(uint16_t duty, uint16_t output);</h4>
+<p>Sets new duty cycle for PB6 in PWM0.</p>
+<h4>void PWM0B_Init(uint16_t period, uint16_t duty);</h4>
+<p>Initializes PWM0 with parameters period and duty. Assigns PB7 as the output pin. Sets
+the behavior of PB7m depending on the count.</p>
+<h4>void PWM0B_Duty(uint16_t duty, uint32_t output);</h4>
+<p>Sets new duty cycle for PB7 in PWM0.</p>
+<h4>struct State 
+uint32_t pb6;
+uint32_t pb7;
+uint32_t direction;
+uint32_t light;
+;</h4>
+<p>State machine implemented as a C programming struct. Holds variables for the behavior
+of PB6, PB7, the output for pins PA4 PA3, and the light indicator for each state.</p>
+<h4>void Motor_Init(void)</h4>
+<p>Initializes the DC motors.</p>
+<h4>void Switch_Init(void)</h4>
+<p>Initializes the PF4 and PF0 switches to cause interrupt everytime they are pressed. Also
+initializes LEDs PF3 PF2 PF1 which will be used for the current state indicator light.</p>
+<h4>void GPIOPortF_Handler(void)</h4>
+<p>This method is called every time PF4 or PF0 are pressed. It will either change the speed
+or direction of the motor.</p>
+<h4>int main(void)</h4>
+<p>Where all the components are initialized. Including super-loop where we wait for
+interrupts to occur.</p>
+                    </div>
+                }
+                topDiagram = {labeledDCCar}
+                detailedDiagram = {HardwareDesignDC}
+                verificationBody = { 
+                    <div>
+                    <h3>Car in Action</h3>
+                    <p> The hardest part for our group was understanding how hardware pulse width modulation
+worked. After we were able to understand the concept, it all went well from there. We have
+implemented state machines in previous projects. DC motors were a new tool to learn to use in
+software implementation, but it was the least convoluted out of all the other motors we have
+worked with. In the end, each component worked as it needed to. Switch 1 cycled through speeds
+and switch 2 changed the direction of the car. Overall, it was a challenging yet rewarding project
+and it helped our group to better grasp the ideas behind the project. </p>
+                   </div>
+                }
+                outputBody = {
+                    <div>
+                        <p>The major concepts that needed to be understood in order to implement this project were
+PWM and how a state machine worked. In addition, it was helpful to understand how H-bridges
+worked with a DC motor. H-bridges are circuits that allow current to be passed through a load in
+either direction. By changing the direction that current passes through the H-bridge, we can
+change the direction that the motor spins the wheel. The PWM concepts help to understand how
+to speed up and slow down the DC motors. The state machine was essential in understanding
+which direction the car was supposed to go in. </p>
+                    </div>
+                }
+                output = {<img src= {frontDCCar} alt="output" width="50%" style={imgStyle}/> }
+                verification = 
+                {<video  width="40%"  muted style={imgStyle} src={carDCVerification}controls>
+                {/* <source src={carVerification} type="video/MOV"/> */}
+              Your browser does not support the video tag.
+              </video>}
+                sourceCode = {carDCSourceCode}
                 
                 
                 />
