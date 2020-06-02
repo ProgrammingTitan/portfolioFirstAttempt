@@ -19,7 +19,7 @@ const About = (props) =>
             
             <Container fluid>
                 <Row >
-                    <Col xs="0" lg="3" ></Col>
+                    <Col xs="0" lg="3" ></Col>  
                     <Col xs="12" lg="6" >
             <Card center>
         <CardImg top width="100%" align="center" src={selfie} alt="Card image cap" />
